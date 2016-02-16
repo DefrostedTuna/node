@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- for mobile, yo -->
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/animate.css"> <!-- required for animations -->
+    <link rel="stylesheet" type="text/css" href="/assets/landing/css/animate.css"> <!-- required for animations -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/app.css"> <!-- user css -->
+    <link rel="stylesheet" type="text/css" href="/assets/landing/css/app.css"> <!-- user css -->
 </head>
 <body>
 <div class="root-body">
@@ -30,6 +30,7 @@
 <div class="middle-section">
   <div class="rss-container">
     <div class="rss-wrapper">
+      <input id="h-subreddit" type="hidden" value="{{ subreddit }}" />
       <h3>Final Fantasy X|V: Heavensward</h3>
       <p><i class="fa fa-rss-square"></i> RSS Feed</p>
       <hr>
@@ -73,7 +74,7 @@
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> <!-- required -->
-<script src="/assets/js/compiled.js"></script> 
+<script src="/assets/landing/js/compiled.js"></script>
 <!-- Scripts -->
 </body>
 </html>

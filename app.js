@@ -12,6 +12,10 @@ var routes = require('./routes/index');
 
 var app = express(); // Run app
 
+// Serve assets. Server side, then locally (for dev). This was dumb...
+app.use("/landing", express.static(path.join(__dirname, '/public')));
+app.use("/assets/landing", express.static(path.join(__dirname, '/public/assets')));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'resources/views'));
 app.set('view engine', 'hjs');
@@ -28,10 +32,11 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: true,
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public/')));
 
 //=========
 // Routing
+
+// Root index
 app.use('/', routes);
 // Routing
 //=========
