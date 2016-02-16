@@ -1,5 +1,4 @@
 var express = require('express');
-var NodePie = require("nodepie");
 var router = express.Router();
 
 /* GET home page. */
