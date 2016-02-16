@@ -1,0 +1,46 @@
+@mixin ut-flash($color: info) {
+  @if $color == info {
+    $color: #e5edf8;
+  } @else if $color == alert {
+    $color: #fff6bf;
+  } @else if $color == error {
+    $color: #fbe3e4;
+  } @else if $color == success {
+    $color: #e6efc2;
+  }
+
+  background-color: $color;
+  color: darken($color, 50%);
+  display: block;
+  box-shadow: 0px 0px 5px darken($color, 12%);
+  border: 1px solid darken($color, 2%);
+  margin-bottom: $ut-margin-sm;
+  padding: .25em;
+  text-align: center;
+  border-radius: 2px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($color, 1%);
+    box-shadow: 0px 0px 5px lighten(darken($color, 12%), 3%);
+    border: 1px solid lighten(darken($color, 2%), 1%);
+    color: lighten(darken($color, 50%), 5%);
+  }
+
+  p {
+    margin-bottom: 0;
+    &:first-of-type {
+      display: inline-block;
+    }
+  }
+
+  a {
+    color: darken($color, 70%);
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      color: darken($color, 90%);
+    }
+  }
+}

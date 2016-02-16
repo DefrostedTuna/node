@@ -1,0 +1,3 @@
+@mixin extend($name) {
+	@extend .#{$name} !optional;
+}

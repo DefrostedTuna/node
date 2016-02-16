@@ -1,0 +1,257 @@
+@import "bourbon/bourbon"
+@import "uptilt/uptilt"
+@lost gutter 1em
+
+body
+  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/furley_bg.png)
+
+.root-body
+  margin: auto
+  max-width: 70em
+  padding: 0.5em
+
+.paragraph-max-width
+  max-width: $ut-paragraph-width-readable
+
+.ut-button
+  +ut-button-setup()
+
+
+//============
+// padding
+
+.padding-container
+.padding-wrapper
+  //background: #f8f8f8
+  padding: 1.5em 0.5em
+  //box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  //border-radius: 3px
+  margin-bottom: $ut-margin-base * 2
+
+
+  height: 5em
+  transition: height ease 0.3s
+  text-align: center
+  iframe
+    display: none
+    margin: 0 auto
+    height: 44px
+    animation-duration: 2s
+    box-shadow: none
+  iframe.show
+    display: block
+
+
+//=============
+// Search bar
+
+.search-bar-container
+  margin-bottom: $ut-margin-base
+.search-bar-wrapper
+  font-size: 1.5em
+  text-align: center
+  max-width: 30em
+  margin: auto
+
+.uptilt-form
+  .input-group
+    position: relative
+    max-width: 100%
+    input[type=text]
+      background: none
+      box-shadow: none
+      border: none
+      border-radius: 0
+      border-bottom: 2px solid $ut-color-blue
+      font-size: 1em
+      width: 100%
+      padding: 0.25em
+      &:focus,
+      &:active
+        outline: none
+
+    label
+      position: absolute
+      bottom: 0.25em
+      left: 0.25em
+      pointer-events: none
+      white-space: nowrap
+      color: #777
+      transition: left ease 0.4s, bottom ease 0.4s, transform ease 0.5s
+
+    input:focus + label,
+    input.has-value + label
+      bottom: 1.8em
+      left: 50%
+      transform: translateX(-50%)
+
+.ut-search-submit
+  +ut-button-shape(square)
+  +ut-button-style(line, $ut-color-blue)
+  +ut-button-size(small, 0.5em, 1em)
+.fa-arrow-circle-right
+  margin-left: 0.25em
+
+// Search bar
+//=============
+
+//=============
+// RSS
+.rss-container.show
+  display: block
+.rss-container
+  display: none
+  lost-column: 2/3
+  animation-duration: 1.5s
+
+.rss-wrapper
+  text-align: center
+  background: #f8f8f8
+  padding: 0.5em
+  box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  border-radius: 3px
+  margin-bottom: $ut-margin-base
+
+.rss-articles-wrap
+  text-align: left
+
+.rss-article
+  .article-title
+    .article-heading
+      margin-bottom: 0
+    &:hover
+      cursor: pointer
+  .article-body
+    text-align: center
+    margin-top: 1.5em
+    display: none
+    table
+      margin: 0
+      td
+        border-bottom: none
+        text-align: center
+    .md // Reddit body class
+      text-align: left
+
+// Media queries
+@media (max-width: 800px)
+  .rss-container
+    lost-column: 1/1
+// RSS
+//========
+
+//===========
+// Lodestone
+
+// To show
+.lodestone-wrapper.show
+  display: block
+
+// Column setup
+.lodestone-container
+  lost-column: 1/3
+
+// Styling
+.lodestone-wrapper
+  background: #f8f8f8
+  padding: 0.5em
+  box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  border-radius: 3px
+  display: none
+  margin-bottom: $ut-margin-base
+  animation-duration: 1.5s
+  hr
+    margin-top: 1em
+// GC Info
+.character-gcinfo
+  text-align: center
+  span
+    img
+      height: 1.5em
+      vertical-align: bottom
+    vertical-align: middle
+
+// Character name, job level, and portrait
+.character-name
+  text-align: center
+
+.character-joblv
+  text-align: center
+  p
+    margin-bottom: 0.5em
+.character-portrait
+  text-align: center
+  img
+    width: 100%
+    border-radius: 3px
+    box-shadow: 1px 1px 5px gray
+
+// Character classes
+.character-class-wrap
+  lost-utility: clearfix
+  h4
+    margin-top: 0
+    cursor: pointer
+  .character-classes
+    display: none
+  .character-class
+    font-size: 0.75em
+    lost-column: 1/2 2
+    span
+      text-align: right
+      display: inline-block
+      width: 1em
+      margin-right: 0.5em
+      padding-right: 0.5em
+      border-right: 1px solid black
+    p
+      margin-bottom: 0.5em
+
+// Character minions
+.character-minion-wrap
+  lost-utility: clearfix
+  h4
+    margin-top: 0
+    cursor: pointer
+  .character-minions
+    display: none
+    img
+      margin: 0.25em
+      box-shadow: 1px 1px 5px gray
+      border-radius: 5px
+      cursor: pointer
+
+// Character mounts
+.character-mount-wrap
+  lost-utility: clearfix
+  h4
+    margin-top: 0
+    cursor: pointer
+  .character-mounts
+    display: none
+    img
+      margin: 0.25em
+      box-shadow: 1px 1px 5px gray
+      border-radius: 5px
+      cursor: pointer
+
+@media (max-width: 800px)
+  // Container
+  .lodestone-container
+    h4
+      font-size: $ut-h3-font-size
+    lost-column: 1/1 0
+  // GC Info
+  .character-gcinfo
+  // Class
+  .character-class-wrap
+      font-size: 1.5em !important
+  // Minion
+  .character-minion-wrap
+    font-size: 1.5em !important
+  // Mount
+  .character-mount-wrap
+    font-size: 1.5em !important
+
+.middle-section
+  lost-utility: clearfix

@@ -1,0 +1,102 @@
+@mixin ut-modal($color, $button: center) {
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+	display: none;
+	z-index: 100;
+
+	.ut-modal-outer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 101;
+
+	}
+
+	.ut-modal-inner {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 98%;
+		max-width: 50em;
+		max-height: 90%;
+		overflow: auto;
+		background: $color;
+		border-radius: 3px;
+		transform: translateX(-50%) translateY(-50%) translateZ(0);
+		z-index: 102;
+
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+
+		.fa-times {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			z-index: 102;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.ut-modal-header {
+			text-align: center;
+			color: white;
+			margin: 0;
+			padding: 0.25em 0.8em;
+			background: rgba(0, 0, 0, 0.1);
+			opacity: 0.8;
+		}
+		.ut-modal-body {
+			font-size: 1.15em;
+			padding: 1em 1em 0px 1em;
+			& *:last-child {
+				//margin-bottom: 0px;
+			}
+		}
+		.ut-modal-footer {
+			padding: 0px 1em 1em 1em;
+			//margin-bottom: 0.5em;
+			@if $button == left {
+			text-align: left;
+			padding-left: 1em;
+			}
+			@else if $button == center {
+			text-align: center;
+			}
+			@else if $button == right {
+			text-align: right;
+			padding-right: 1em;
+			}
+		}
+	}
+}
+
+//	This needs to be applied to the content section of the HTML
+.ut-modal-blur {
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.ut-modal-no-scroll {
+		overflow: hidden;
+}
+
+
+// To show the modal
+.ut-modal-show {
+	display: block !important;
+}

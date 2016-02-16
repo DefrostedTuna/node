@@ -1,0 +1,104 @@
+fieldset {
+  background-color: $ut-fieldset-bg-color;
+  border: .0825em solid $ut-fieldset-border;
+  //border: .0625em solid $ut-color-light-gray;
+  margin: $ut-fieldset-margin 0;
+  padding: $ut-fieldset-padding;
+}
+
+.base-form {
+  input,
+  label,
+  select {
+    display: block;
+    font-family: $ut-font-family-base;
+    font-size: 1rem;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: $ut-margin-sm / 2;
+
+    &.required::after {
+      content: "*";
+    }
+
+    abbr {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  #{$all-text-inputs},
+  select[multiple=multiple] {
+    background-color: $ut-color-white;
+    border:.0825em solid $ut-fieldset-border;
+    border-radius: em(3px);
+    box-shadow: inset 0 .0825em .1875em rgba(#000, 0.06);
+    box-sizing: border-box;
+    font-family: $ut-font-family-base;
+    font-size: 1rem;
+    margin-bottom: $ut-margin-sm;
+    padding: $ut-padding-sm;
+    transition: border-color $ut-animation-duration $ut-animation-timing;
+    width: 100%;
+
+    &:hover {
+      border-color: shade($ut-fieldset-border, 20%);
+    }
+
+    &:focus {
+      border-color: $ut-color-blue;
+      box-shadow: inset 0 .0825em .1875em rgba(#000, 0.06), 0 0 .3125em adjust-color($ut-color-blue, $lightness: -5%, $alpha: -0.3);
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: shade($ut-color-white, 5%);
+      cursor: not-allowed;
+
+      &:hover {
+        border: .0825em solid $ut-color-light-gray;
+      }
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type="search"] {
+    appearance: none;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-right: .375em;
+
+    + label {
+      display: inline-block;
+    }
+  }
+
+  input[type="file"] {
+    margin-bottom: $ut-margin-sm;
+    width: 100%;
+  }
+
+  select {
+    margin-bottom: $ut-margin-sm;
+    max-width: 100%;
+    width: auto;
+    cursor: pointer
+  }
+
+  input[type="file"],
+  input[type="range"],
+  input[type="color"] {
+    cursor: pointer;
+  }
+}

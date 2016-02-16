@@ -1,0 +1,130 @@
+//============
+// Variables
+//============
+
+// Fonts Families
+$ut-font-roboto:                'Roboto', sans-serif;
+$ut-font-open-sans:             'Open Sans', sans-serif;
+$ut-font-lato:                  'Lato', sans-serif;
+
+// Fonts
+$ut-font-family-base:           $ut-font-roboto;
+$ut-font-family-heading:        $ut-font-lato;
+
+// Font sizes and breakpoints
+$ut-root-font-min:              14px;
+$ut-root-font-max:              21px;
+$ut-root-width-min:             500px;
+$ut-root-width-max:             1600px;                             // Best to set to max width of the main container
+
+// Spacings
+$ut-line-height-base:           1.5;                                // Default 1.5
+$ut-line-height-heading:        1;
+$ut-margin-base:                ($ut-line-height-base * 1em);       // Defaults to 1.5em
+$ut-margin-sm:                  ($ut-margin-base / 1.5);            // Defaults to .5em step down (1em)
+$ut-margin-lg:                  ($ut-margin-base / .75);            // Defaults to .5em step up (2em)
+$ut-padding-base:               ($ut-line-height-base * .666667em); // Defaults to 1em
+$ut-padding-sm:                 ($ut-padding-base * .5);            // Defaults to .5em
+$ut-padding-lg:                 ($ut-padding-base * 1.5);           // Defaults to 1.5em
+
+// Colors
+//$ut-color-blue:                 #477DCA;
+$ut-color-dark-gray:            #444444;
+$ut-color-medium-gray:          #999999;
+$ut-color-light-gray:           #DDDDDD;
+$ut-color-white:                #FFFFFF;
+$ut-color-black:                #383838;
+$ut-color-aqua:                 #1ABC9C;
+$ut-color-blue:                 #3498DB;
+$ut-color-green:                #2ECC71;
+$ut-color-orange:               #F39C12;
+$ut-color-pink:                 #EB5367;
+$ut-color-purple:               #9B59B6;
+$ut-color-red:                  #E74C3C;
+$ut-color-yellow:               #F1C40F;
+
+// Element Colors
+$ut-font-color-base:            $ut-color-dark-gray;
+$ut-font-color-heading:         $ut-color-dark-gray;
+$ut-font-color-anchor:          $ut-color-blue;
+
+// Misc
+$ut-border-radius:              .1875;  // 3px based on a 16px base
+
+// Animations
+$ut-animation-timing:           ease;
+$ut-animation-duration:         150ms;
+
+// Grid Breakpoints
+$ut-screen-sm:                  480px;
+$ut-screen-md:                  600px;
+$ut-screen-lg:                  900px;
+$ut-screen-xl:                  1200px;
+$ut-screen-xxl:                 1600px;
+
+//======================
+// Base Element Config
+//======================
+
+// Body
+$ut-body-font-color:            $ut-font-color-base;
+$ut-body-font-family:           $ut-font-family-base;
+$ut-body-line-height:           $ut-line-height-base;
+
+// Headings
+$ut-heading-font-family:        $ut-font-family-heading;
+$ut-heading-line-height:        $ut-line-height-heading;
+$ut-heading-font-weight:        400;
+$ut-heading-margin:             ($ut-heading-line-height * .5em); // Defaults to .5em top/bottom margin
+$ut-heading-letter-spacing:     .1em;
+
+// Heading Sizes
+$ut-h1-font-size:               3.157rem;
+$ut-h2-font-size:               2.369rem;
+$ut-h3-font-size:               1.777rem;
+$ut-h4-font-size:               1.333rem;
+$ut-h5-font-size:               1rem;
+$ut-h6-font-size:               1rem;
+
+// Small
+$ut-small-font-size:            .75rem;
+
+// Paragraphs
+$ut-paragraph-color:            #888;
+$ut-paragraph-margin:           $ut-margin-base;      // Bottom margin (1.5em)
+$ut-paragraph-width-readable:   (1rem * 45);          // Based on root element. ~80 characters per line.
+
+// Lists
+$ut-list-margin:                $ut-margin-base;
+
+// Anchors
+$ut-anchor-color:               $ut-font-color-anchor;
+$ut-anchor-color-hover:         shade($ut-anchor-color, 25%);
+
+// HR
+$ut-hr-color:                   $ut-color-light-gray;
+
+// Blockquote
+$ut-blockquote-color:           $ut-color-blue;
+$ut-blockquote-margin:          ($ut-margin-base * .5); // Defaults to .75em
+$ut-blockquote-padding:         $ut-padding-base;
+
+// Fieldset
+$ut-fieldset-bg-color:          tint($ut-color-light-gray, 75%);
+$ut-fieldset-border-color:      shade($ut-fieldset-bg-color, 25%);
+$ut-fieldset-margin:            $ut-margin-base;
+$ut-fieldset-padding:           $ut-padding-base;
+
+// Forms
+$ut-label-font-size:            1em;
+$ut-label-font-family:          $ut-font-family-base;
+$ut-label-font-color:           inherit;
+$ut-input-margin:               $ut-margin-base;
+$ut-input-padding:              $ut-padding-base;
+$ut-input-font-size:            0.75em;
+$ut-input-font-family:          inherit;
+$ut-input-font-color:           inherit;
+$ut-input-background-color:     $ut-color-white;
+$ut-input-border-color:         $ut-color-light-gray;
+$ut-input-border-color-hover:   $ut-color-blue;
+$ut-input-border-color-active:  $ut-color-green;

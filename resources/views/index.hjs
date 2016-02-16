@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Homepage yo!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- for mobile, yo -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/animate.css"> <!-- required for animations -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css"> <!-- user css -->
+</head>
+<body>
+<div class="root-body">
+<div class="padding-container">
+    <div class="padding-wrapper">
+        <!-- This is just for spacing -->
+    </div>
+</div>
+<div class="search-bar-container">
+    <div class="search-bar-wrapper">
+        <form class="uptilt-form" method="get" action="https://www.google.com/search">
+            <div class="input-group">
+                <input type="text" id="uptilt-input" name="q" autofocus />
+                <label for="uptilt-input">Google knows everything...</label>
+            </div>
+            <button type="submit" class="ut-button ut-search-submit">Search for it<i class="fa fa-lg fa-arrow-circle-right"></i></button>
+        </form>
+    </div>
+</div> <!-- search bar container -->
+<div class="middle-section">
+  <div class="rss-container">
+    <div class="rss-wrapper">
+      <h3>Final Fantasy X|V: Heavensward</h3>
+      <p><i class="fa fa-rss-square"></i> RSS Feed</p>
+      <hr>
+      <div class="rss-articles-wrap">
+        <!-- AJAX DATA GOES HURR -->
+      </div>
+    </div>
+  </div> <!-- rss-container -->
+  <div class="lodestone-container">
+    <input id="h-character-name" type="hidden" value="{{ character }}" />
+    <input id="h-character-server" type="hidden" value="{{ server }}" />
+    <div class="lodestone-wrapper">
+      <h4 class="character-name"></h4>
+      <div class="character-joblv"></div>
+      <div class="character-portrait"></div>
+      <div class="character-gcinfo"></div>
+      <hr>
+      <div class="character-class-wrap">
+        <div class="character-classes"></div>
+      </div>
+      <hr>
+      <div class="character-minion-wrap">
+        <div class="character-minions"></div>
+      </div>
+      <hr>
+      <div class="character-mount-wrap">
+        <div class="character-mounts"></div>
+      </div>
+      <hr>
+    </div>
+  </div> <!-- lodestone-container -->
+</div> <!-- middle-section -->
+</div> <!-- root-body -->
+
+<!-- END OF BODY DUDE. STOP GENERAL CONTENT HERE. -->
+
+<!-- This is where you put the modals man. -->
+<div class="root-modals">
+    <!-- Modal Content -->
+</div> <!-- root-modals -->
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> <!-- required -->
+<script src="/assets/js/compiled.js"></script> 
+<!-- Scripts -->
+</body>
+</html>

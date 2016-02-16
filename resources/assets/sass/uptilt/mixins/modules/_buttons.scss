@@ -1,0 +1,175 @@
+/**
+*	Thanks to the guys who made Buttonplate for this.
+*	Stripped it down to include in this project more fluently.
+**/
+
+$lightness-threshold: 68%;
+$lightness-threshold-line: 98%;
+
+@mixin ut-button-setup() {
+	@include position(relative);
+	@include display(inline-block);
+	color: (lighten(#000, 40%));
+	@include text-decoration(none);
+	vertical-align: middle;
+	border: none;
+	background-color: #ddd;
+	outline: none;
+	-webkit-appearance: none;
+	@include padding(1em 2em);
+	//@include margin(0.5em);
+	font-size: 1em;
+	font-family: inherit;
+	text-align: center;
+
+	&:visited {
+		color: lighten(#000, 40%);
+	}
+	&:hover {
+		cursor: pointer;
+		background-color: tint(#ddd, 40%);
+	}
+	&:active {
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15) inset;
+		text-shadow: fade-out(#fff, 0.75) 0px 1px 0;
+		background-color: #ddd;
+	}
+	&:disabled {
+			cursor: not-allowed;
+			color: white;
+			border-color: gray;
+			background-color: gray;
+			&:hover {
+				color: white;
+				border-color: gray;
+				background-color: gray;
+			}
+			&:active {
+				color: white;
+				border-color: gray;
+				background-color: gray;
+				box-shadow: none;
+				text-shadow: none;
+			}
+	}
+
+	@include transition(all 0.2s ease);
+}
+
+
+@mixin ut-button-shape($shape: square) {
+	@if $shape == pill {
+		border-radius: 100px;
+	}
+	@else if $shape == square {
+		border-radius: 0px;
+	}
+	@else {
+		border-radius: 0;
+	}
+}
+
+@mixin ut-button-style($style, $color, $border-size: 1px, $lighten: 5%) {
+	@if $style == line {
+		// Setup
+		@if lightness($color) < $lightness-threshold-line {
+			color: $color;
+		}
+		@else {
+			color: $white;
+		}
+		background: transparent;
+		border: $border-size solid $color;
+		// States
+		@if $color != #fff {
+			@if $color != #EBEBEB {
+				&:visited {
+					color: $color;
+				}
+			}
+		}
+		&:hover {
+			// Check lightness
+			@if lightness($color) > 80% {
+				color: $grey;
+			}
+			@else {
+				color: #fff;
+			}
+			// Check saturations
+			@if saturation($color) > 0% {
+				@if saturation($color) > 50% {
+					background-color: lighten(saturate($color, 8%), $lighten);
+					border: $border-size solid lighten(saturate($color, 8%), $lighten);
+				}
+				@else{
+					background-color: lighten(saturate($color, 30%), $lighten);
+					border: $border-size solid lighten(saturate($color, 30%), $lighten);
+				}
+			}
+			@else {
+				background-color: lighten($color, $lighten);
+				border: $border-size solid lighten($color, $lighten);
+			}
+		}
+		&:active {
+			@if lightness($color) < $lightness-threshold {
+				color: darken($color, 18%);
+			}
+			background-color: $color;
+		}
+	}
+	// Flat - Also the default
+	@else {
+		// Setup
+		@if lightness($color) < $lightness-threshold {
+			color: #fff;
+		}
+		background-color: $color;
+		border: $border-size solid $color;
+		// States
+		@if $color != #fff {
+			@if $color != #EBEBEB {
+				&:visited {
+					color: #fff;
+				}
+			}
+		}
+		&:hover {
+			// Check saturations
+			@if saturation($color) > 0% {
+				@if saturation($color) > 50% {
+					background-color: lighten(saturate($color, 8%), $lighten);
+					border: $border-size solid lighten(saturate($color, 8%), $lighten);
+				}
+				@else{
+					background-color: lighten(saturate($color, 30%), $lighten);
+					border: $border-size solid lighten(saturate($color, 30%), $lighten);
+				}
+			}
+			@else {
+				background-color: lighten($color, $lighten);
+				border: $border-size solid lighten($color, $lighten);
+			}
+		}
+		&:active {
+			@if lightness($color) < $lightness-threshold {
+				color: darken($color, 18%);
+			}
+			background-color: $color;
+		}
+	}
+}
+
+@mixin ut-button-size($size: medium, $paddingV: 1em, $paddingH: 2em) {
+  @if $size == small {
+	font-size: 0.75em;
+  }
+  @else if $size == medium {
+	font-size: 1em;
+  }
+  @else if $size == large {
+	font-size: 1.25em;
+  }
+  @include padding($paddingV $paddingH);
+}

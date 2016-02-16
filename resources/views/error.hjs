@@ -1,0 +1,23 @@
+<!doctype HTML>
+<head>
+  <title>Error Dood!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- for mobile, yo -->
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css"> <!-- required for animations -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/app.css"> <!-- user css -->
+</head>
+<body>
+    <div class="error-container">
+      <div class="error-page">
+        <h1>{{ error.status }} {{ message }}</h1>
+        <hr>
+        <h4>
+          Hey man, you might have mistyped the URL.
+        </h4>
+        <h4>Check to make sure everything is spelled correctly. I screw this up from time to time myself.</h4>
+        <!--<pre>{{ error.stack }}</pre>-->
+      </div>
+    </div>
+</body>

@@ -1,0 +1,74 @@
+fieldset {
+  background-color: $ut-fieldset-bg-color;
+  border: 1px solid $ut-fieldset-border-color;
+  margin: $ut-fieldset-margin 0;
+  padding: $ut-fieldset-padding;
+}
+
+label {
+  font-size: $ut-label-font-size;
+  font-family: $ut-label-font-family;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+label,
+input{
+  display: block;
+}
+
+#{$all-text-inputs},
+select[multiple=multiple] {
+  font-size: $ut-input-font-size;
+  font-family: $ut-input-font-family;
+  background: $ut-input-background-color;
+  border: 1px solid $ut-input-border-color;
+  border-radius: 3px;
+  box-shadow: inset 0 2px 3px rgba(#000, 0.06);
+  padding: $ut-input-padding;
+  margin-bottom: $ut-input-margin;
+  width: 100%;
+  transition: border ease .3s;
+  box-sizing: border-box;
+  &:hover {
+    border: 1px solid $ut-input-border-color-hover;
+  }
+  &:focus {
+    border: 1px solid $ut-input-border-color-active;
+    box-shadow: 0px 0px 2px darken($ut-input-border-color-active, 12%);
+    outline: none;
+  }
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input[type=range],
+input[type=color],
+input[type=file] {
+  cursor: pointer;
+}
+
+input[type=color] {
+  font-size: $ut-label-font-size;
+  height: 2em;
+  width: 100%;
+  padding: 0.25em;
+}
+
+select {
+  font-size: $ut-input-font-size;
+  line-height: $ut-line-height-base;
+}

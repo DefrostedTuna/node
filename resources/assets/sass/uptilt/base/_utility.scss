@@ -1,0 +1,41 @@
+.ut-block-text {
+	//margin: auto;
+	margin: 0 auto $ut-paragraph-margin;
+	max-width: $ut-paragraph-width-readable;
+}
+
+.ut-left {
+	float: left;
+}
+
+.ut-right {
+	float: right;
+}
+
+.ut-text-left {
+	text-align: left;
+}
+
+.ut-text-right {
+	text-align: right;
+}
+
+.ut-text-center {
+	text-align: center;
+}
+
+.ut-hide {
+	display: none;
+}
+
+.ut-inline {
+	display: inline;
+}
+
+.ut-block {
+	display: block;
+}
+
+.ut-inline-block {
+	display: inline-block;
+}

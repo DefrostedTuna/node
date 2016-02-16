@@ -1,0 +1,112 @@
+:root {
+  font-size: 16px; // Fallback font-size for browsers without calc() support
+  font-size: calc(
+    #{$ut-root-font-min} + ( #{strip-unit($ut-root-font-max)} - #{strip-unit($ut-root-font-min)} )
+    *
+    ( (100vw - #{$ut-root-width-min})
+    /
+    ( #{strip-unit($ut-root-width-max)} - #{strip-unit($ut-root-width-min)} ) ));
+  @media screen and (max-width: $ut-root-width-min) {
+    font-size: $ut-root-font-min;
+  }
+  @media screen and (min-width: $ut-root-width-max) {
+    font-size: $ut-root-font-max;
+  }
+}
+
+body {
+  margin: auto;
+  color: $ut-body-font-color;
+  font-family: $ut-body-font-family;
+  font-feature-settings: "kern", "liga", "pnum";
+  font-size: 1rem;
+  line-height: $ut-body-line-height;
+}
+
+p {
+  //color: $ut-paragraph-color;
+  margin: 0 0 $ut-paragraph-margin;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ut-heading-font-family;
+  font-weight: $ut-heading-font-weight;
+  color: $ut-font-color-heading;
+  line-height: $ut-heading-line-height;
+  margin: $ut-heading-margin 0;
+}
+
+h1 {
+  font-size: $ut-h1-font-size;
+}
+
+h2 {
+  font-size: $ut-h2-font-size;
+}
+
+h3 {
+  font-size: $ut-h3-font-size;
+}
+
+h4 {
+  font-size: $ut-h4-font-size;
+}
+
+h5 {
+  font-size: $ut-h5-font-size;
+}
+
+h6 {
+  font-size: $ut-h6-font-size;
+}
+
+small {
+  font-size: $ut-small-font-size;
+}
+
+a {
+  color: $ut-anchor-color;
+  text-decoration: none;
+  transition: color $ut-animation-duration $ut-animation-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $ut-anchor-color-hover;
+  }
+}
+
+hr {
+  border-bottom: 2px solid $ut-hr-color;
+  //border-bottom: .0825em solid $ut-hr-color;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $ut-margin-base 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.iframe-wrap {
+  margin-bottom: $ut-margin-base;
+}
+
+blockquote {
+  margin: $ut-blockquote-margin;
+  padding-left: $ut-blockquote-padding;
+  border-left: ($ut-blockquote-margin * .5) solid $ut-blockquote-color;
+}
