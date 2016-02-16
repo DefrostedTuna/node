@@ -4,7 +4,7 @@ $(function() {
 
   var subreddit = ($('#h-subreddit').val() ? $('#h-subreddit').val() : "ffxiv");
 
-  $.getJSON("https://www.reddit.com/r/" + subreddit  + "/.json", function(data) {
+  $.getJSON("https://www.reddit.com/r/" + subreddit  + "/new/.json", function(data) {
     // Iterate through each post object
     $.each(data.data.children.slice(0, 10), function(index, post) {
 
