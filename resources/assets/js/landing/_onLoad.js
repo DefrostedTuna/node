@@ -1,8 +1,7 @@
 $(function() {
   //====================
   // On load animations
-  $('.rss-container').addClass("animated bounceInUp show");
-  $('.padding-wrapper iframe').addClass("animated bounceInDown show");
+  $("body").fadeIn();
   $('.character-class-wrap').click(function(){
      $('.character-classes').slideToggle('slow');
   });

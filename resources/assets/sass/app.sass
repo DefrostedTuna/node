@@ -4,6 +4,10 @@
 
 body
   background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/furley_bg.png)
+  // Smooth the animations a bit on load
+  display: none
+  overflow-x: hidden
+
 
 .root-body
   margin: auto
@@ -16,37 +20,12 @@ body
 .ut-button
   +ut-button-setup()
 
-
-//============
-// padding
-
-.padding-container
-.padding-wrapper
-  //background: #f8f8f8
-  padding: 1.5em 0.5em
-  //box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
-  //border-radius: 3px
-  margin-bottom: $ut-margin-base * 2
-
-
-  height: 5em
-  transition: height ease 0.3s
-  text-align: center
-  iframe
-    display: none
-    margin: 0 auto
-    height: 44px
-    animation-duration: 2s
-    box-shadow: none
-  iframe.show
-    display: block
-
-
 //=============
 // Search bar
 
 .search-bar-container
   margin-bottom: $ut-margin-base
+  margin-top: 5em
 .search-bar-wrapper
   font-size: 1.5em
   text-align: center
@@ -69,11 +48,13 @@ body
       &:focus,
       &:active
         outline: none
+      margin-bottom: 1em
 
     label
       position: absolute
       bottom: 0.25em
-      left: 0.25em
+      left: 50%
+      transform: translateX(-50%)
       pointer-events: none
       white-space: nowrap
       color: #777
@@ -106,16 +87,33 @@ body
 
 .rss-wrapper
   text-align: center
-  background: #f8f8f8
-  padding: 0.5em
-  box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
-  border-radius: 3px
+  //background: #f8f8f8
+  //box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  //border-radius: 3px
   margin-bottom: $ut-margin-base
 
 .rss-articles-wrap
   text-align: left
 
+.rss-header
+  padding: 0.5em
+  background: #f8f8f8
+  box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  border-radius: 3px
+  margin-bottom: $ut-margin-sm
+  .subreddit-title
+    margin-top: 0
+  p
+    margin-bottom: 0
 .rss-article
+  padding: 0.5em
+  background: #f8f8f8
+  box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
+  border-radius: 3px
+  margin-bottom: 0.5em
+  margin-top: 15em
+  opacity: 0
+  transition: opacity ease 1.5s, margin-top ease 1s
   .article-title
     .article-heading
       margin-bottom: 0
@@ -157,9 +155,12 @@ body
   padding: 0.5em
   box-shadow: 1px 1px 5px rgba($ut-color-light-gray, 0.8)
   border-radius: 3px
-  display: none
   margin-bottom: $ut-margin-base
   animation-duration: 1.5s
+  position: relative
+  left: 200%
+  opacity: 0
+  transition: left ease 1s, opacity ease 1s
   hr
     margin-top: 1em
 // GC Info

@@ -553,7 +553,10 @@ $(function() {
       });
       // Load the content only after the div is ready to be loaded
       $('.character-portrait img').one('load', function() {
-        $('.lodestone-wrapper').addClass("animated bounceInRight show");
+        $('.lodestone-wrapper').css({
+          "left" : "0",
+          "opacity" : "1"
+        });
       });
     } else {
       console.log("Couldn't find it bro!");
@@ -567,7 +570,14 @@ $(function() {
   //=============
   // RSS Stuff
 
-  var subreddit = ($('#h-subreddit').val() ? $('#h-subreddit').val() : "ffxiv");
+  var subreddit       = ($('#h-subreddit').val() ? $('#h-subreddit').val() : "ffxiv");
+  var subredditTitle  = "Recent posts from /r/" + subreddit;
+  if(subreddit == "ffxiv") {
+    var subredditTitle = "Final Fantasy X|V: Heavensward";
+  } else if(subreddit == "wow") {
+    var subredditTitle = "World of Warcraft";
+  }
+  $('.subreddit-title').append(subredditTitle);
 
   $.getJSON("https://www.reddit.com/r/" + subreddit  + "/new/.json", function(data) {
     // Iterate through each post object
@@ -607,7 +617,7 @@ $(function() {
 
       //=================
       // DOM Construction... So ugly... /cry
-      $('<div class="rss-article" />')
+      $('<div ' + 'id="rss-a-' + index + '" ' + 'class="rss-article" />')
       .append($('<div class="article-title" />')
         .append( $('<h4 class="article-heading">').append(articleTitle) )
         .append( $('<small>').append(articleDate) )
@@ -624,12 +634,41 @@ $(function() {
         .append('<a href="https://www.reddit.com' + post.data.permalink + '" target="_blank">' + "Link to post" + '</a> | ')
         .append('<a href="' + post.data.url + '" target="_blank">' + 'External link' + '</a>')
       )
-      .append('<hr>')
       .appendTo('.rss-articles-wrap');
 
     });
     // Cleanup empty articles to prevent an empty slide down
+    // This prevents an empty element from being loaded into the page
     $(".article-body:empty").remove();
+
+    // Show RSS container after all content is loaded
+    $('.rss-container').fadeIn(1000);
+
+    // Slide up and fade in the posts for a stacking like effect
+    for (var i = 0; i < 10; i++) {
+      $('#rss-a-' + i).queue(function(n) {
+        console.log("in queue" + i);
+        $(this).css({
+          "opacity" : "1",
+          "margin-top" : "0.5em",
+        });
+      });
+    }
+
+    //test
+    // var rssCardStart = 0, rssCardEnd = 10;
+    // (function rssCardStack () {
+    //     if (rssCardStart < rssCardEnd) {
+    //       console.log("#rss-a-" + rssCardStart);
+    //       $('#rss-a-' + rssCardStart++).animate({
+    //         "opacity" : "1",
+    //         "margin-top" : "0.5em",
+    //         "queue" : "false"
+    //       }, 300, rssCardStack);
+    //     }
+    // }) ();
+    //test
+
     // DOM Construction
     //==================
 
@@ -644,8 +683,7 @@ $(function() {
 $(function() {
   //====================
   // On load animations
-  $('.rss-container').addClass("animated bounceInUp show");
-  $('.padding-wrapper iframe').addClass("animated bounceInDown show");
+  $("body").fadeIn();
   $('.character-class-wrap').click(function(){
      $('.character-classes').slideToggle('slow');
   });

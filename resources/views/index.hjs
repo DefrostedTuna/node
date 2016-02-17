@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Custom Homepage yo!</title>
+    <title>Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- for mobile, yo -->
     <!-- Stylesheets -->
@@ -11,11 +11,6 @@
 </head>
 <body>
 <div class="root-body">
-<div class="padding-container">
-    <div class="padding-wrapper">
-        <!-- This is just for spacing -->
-    </div>
-</div>
 <div class="search-bar-container">
     <div class="search-bar-wrapper">
         <form class="uptilt-form" method="get" action="https://www.google.com/search">
@@ -31,9 +26,10 @@
   <div class="rss-container">
     <div class="rss-wrapper">
       <input id="h-subreddit" type="hidden" value="{{ subreddit }}" />
-      <h3>Final Fantasy X|V: Heavensward</h3>
-      <p><i class="fa fa-rss-square"></i> RSS Feed</p>
-      <hr>
+      <div class="rss-header">
+        <h3 class="subreddit-title"></h3>
+        <p><i class="fa fa-rss-square"></i> RSS Feed</p>
+      </div>
       <div class="rss-articles-wrap">
         <!-- AJAX DATA GOES HURR -->
       </div>

@@ -40,7 +40,10 @@ $(function() {
       });
       // Load the content only after the div is ready to be loaded
       $('.character-portrait img').one('load', function() {
-        $('.lodestone-wrapper').addClass("animated bounceInRight show");
+        $('.lodestone-wrapper').css({
+          "left" : "0",
+          "opacity" : "1"
+        });
       });
     } else {
       console.log("Couldn't find it bro!");

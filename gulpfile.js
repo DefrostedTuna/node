@@ -45,4 +45,5 @@ gulp.task('styles', function() {
 gulp.task('watch', function() {
     gulp.watch('resources/assets/sass/*.sass', ['styles']);
     gulp.watch('resources/assets/js/*.js', ['js']);
+    gulp.watch('resources/assets/js/*/*.js', ['js']);
 });
