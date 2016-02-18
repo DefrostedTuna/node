@@ -520,7 +520,7 @@ $(function() {
       console.log(Character);
       // Character name, job level and class
       $('.character-name').append(Character.name);
-      $('.character-joblv').append("<p>Lv " + Character.activeLevel + " " + Character.activeJob + "</p>");
+      $('.character-joblv').append("<p>Lv " + Character.activeLevel + " " + (Character.activeJob ? Character.activeJob : Character.activeClass) + "</p>");
       // Character portrait
       $('.character-portrait').append("<img src=" + Character.portrait + "/>");
       // FC Info
