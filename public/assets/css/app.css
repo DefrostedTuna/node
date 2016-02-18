@@ -423,6 +423,8 @@ select {
         text-align: center; }
     .rss-article .article-body .md {
       text-align: left; }
+  .rss-article .article-media {
+    margin-bottom: 1.5em; }
 
 @media (max-width: 800px) {
   .rss-container {
