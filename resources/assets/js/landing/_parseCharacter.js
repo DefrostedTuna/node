@@ -4,7 +4,6 @@ $(function() {
 
   LodestoneAPI.Search.Character(LodestoneCharacterName, LodestoneCharacterServer, function(Character) {
     if(Character) {
-      console.log(Character);
       // Character name, job level and class
       $('.character-name').append(Character.name);
       $('.character-joblv').append("<p>Lv " + Character.activeLevel + " " + (Character.activeJob ? Character.activeJob : Character.activeClass) + "</p>");
@@ -16,7 +15,6 @@ $(function() {
         $('.character-gcinfo').append(
           "<p><span><img src='" + grandCompany.icon + "'/></span>" +
           '<span> ' + grandCompany.rank + '</span></p>');
-        console.log(grandCompany.company + grandCompany.rank);
       });
       // Classes section
       $('.character-class-wrap').prepend("<h4>Classes</h4>");
@@ -48,6 +46,17 @@ $(function() {
     } else {
       console.log("Couldn't find it bro!");
     }
+  });
+
+  // Toggle drop downs on click
+  $('.character-class-wrap').click(function(){
+     $('.character-classes').slideToggle('slow');
+  });
+  $('.character-minion-wrap').click(function(){
+      $('.character-minions').slideToggle('slow');
+  });
+  $('.character-mount-wrap').click(function(){
+      $('.character-mounts').slideToggle('slow');
   });
   // End Lodestone Stuff
   //======================

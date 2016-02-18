@@ -25,7 +25,7 @@ $(function() {
       var articleDate = $.timeago(new Date(post.data.created_utc * 1000));
       var articleBody = $('<div/>').html(post.data.selftext_html).text();
 
-      // Link Types
+      // Media Link Types
       // Check to see if the post contains media of any kind
       if(post.data.post_hint == "image") {
         // Grab the direct URL for better image viewing
@@ -86,24 +86,10 @@ $(function() {
         });
       });
     }
-
-    //test
-    // var rssCardStart = 0, rssCardEnd = 10;
-    // (function rssCardStack () {
-    //     if (rssCardStart < rssCardEnd) {
-    //       console.log("#rss-a-" + rssCardStart);
-    //       $('#rss-a-' + rssCardStart++).animate({
-    //         "opacity" : "1",
-    //         "margin-top" : "0.5em",
-    //         "queue" : "false"
-    //       }, 300, rssCardStack);
-    //     }
-    // }) ();
-    //test
-
     // DOM Construction
     //==================
 
+    // Toggle article when title is clicked
     $(".article-title").click(function() {
       $(this).next('.article-body').slideToggle();
     });

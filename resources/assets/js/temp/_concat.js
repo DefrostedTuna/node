@@ -517,7 +517,6 @@ $(function() {
 
   LodestoneAPI.Search.Character(LodestoneCharacterName, LodestoneCharacterServer, function(Character) {
     if(Character) {
-      console.log(Character);
       // Character name, job level and class
       $('.character-name').append(Character.name);
       $('.character-joblv').append("<p>Lv " + Character.activeLevel + " " + (Character.activeJob ? Character.activeJob : Character.activeClass) + "</p>");
@@ -529,7 +528,6 @@ $(function() {
         $('.character-gcinfo').append(
           "<p><span><img src='" + grandCompany.icon + "'/></span>" +
           '<span> ' + grandCompany.rank + '</span></p>');
-        console.log(grandCompany.company + grandCompany.rank);
       });
       // Classes section
       $('.character-class-wrap').prepend("<h4>Classes</h4>");
@@ -562,6 +560,17 @@ $(function() {
       console.log("Couldn't find it bro!");
     }
   });
+
+  // Toggle drop downs on click
+  $('.character-class-wrap').click(function(){
+     $('.character-classes').slideToggle('slow');
+  });
+  $('.character-minion-wrap').click(function(){
+      $('.character-minions').slideToggle('slow');
+  });
+  $('.character-mount-wrap').click(function(){
+      $('.character-mounts').slideToggle('slow');
+  });
   // End Lodestone Stuff
   //======================
 });
@@ -593,7 +602,7 @@ $(function() {
       var articleDate = $.timeago(new Date(post.data.created_utc * 1000));
       var articleBody = $('<div/>').html(post.data.selftext_html).text();
 
-      // Link Types
+      // Media Link Types
       // Check to see if the post contains media of any kind
       if(post.data.post_hint == "image") {
         // Grab the direct URL for better image viewing
@@ -654,24 +663,10 @@ $(function() {
         });
       });
     }
-
-    //test
-    // var rssCardStart = 0, rssCardEnd = 10;
-    // (function rssCardStack () {
-    //     if (rssCardStart < rssCardEnd) {
-    //       console.log("#rss-a-" + rssCardStart);
-    //       $('#rss-a-' + rssCardStart++).animate({
-    //         "opacity" : "1",
-    //         "margin-top" : "0.5em",
-    //         "queue" : "false"
-    //       }, 300, rssCardStack);
-    //     }
-    // }) ();
-    //test
-
     // DOM Construction
     //==================
 
+    // Toggle article when title is clicked
     $(".article-title").click(function() {
       $(this).next('.article-body').slideToggle();
     });
