@@ -15,7 +15,7 @@
     <div class="search-bar-wrapper">
         <form class="uptilt-form" method="get" action="https://www.google.com/search">
             <div class="input-group">
-                <input type="text" id="uptilt-input" name="q" autofocus />
+                <input type="text" id="uptilt-input" name="q" autofocus autocomplete="off"/>
                 <label for="uptilt-input">Google knows everything...</label>
             </div>
             <button type="submit" class="ut-button ut-search-submit">Search for it<i class="fa fa-lg fa-arrow-circle-right"></i></button>

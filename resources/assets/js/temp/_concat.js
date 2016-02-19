@@ -579,14 +579,19 @@ $(function() {
   //=============
   // RSS Stuff
 
+
+  // Gather subreddit info that was passed to the URI
   var subreddit       = ($('#h-subreddit').val() ? $('#h-subreddit').val() : "ffxiv");
   var subredditTitle  = "Recent posts from /r/" + subreddit;
+  var subredditLink   = $('<a />').attr("href","https://www.reddit.com/r/" + subreddit);
   if(subreddit == "ffxiv") {
     var subredditTitle = "Final Fantasy X|V: Heavensward";
   } else if(subreddit == "wow") {
     var subredditTitle = "World of Warcraft";
   }
-  $('.subreddit-title').append(subredditTitle);
+
+  //$('.subreddit-title').append(subredditTitle);
+  $(subredditLink).append(subredditTitle).appendTo(".subreddit-title");
 
   $.getJSON("https://www.reddit.com/r/" + subreddit  + "/new/.json", function(data) {
     // Iterate through each post object
@@ -679,14 +684,6 @@ $(function() {
   //====================
   // On load animations
   $("body").fadeIn();
-  $('.character-class-wrap').click(function(){
-     $('.character-classes').slideToggle('slow');
-  });
-  $('.character-minion-wrap').click(function(){
-      $('.character-minions').slideToggle('slow');
-  });
-  $('.character-mount-wrap').click(function(){
-      $('.character-mounts').slideToggle('slow');
-  });
+
   $('.article-video').fitVids();
 });

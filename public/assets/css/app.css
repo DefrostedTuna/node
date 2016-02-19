@@ -395,6 +395,8 @@ select {
   margin-bottom: 1em; }
   .rss-header .subreddit-title {
     margin-top: 0; }
+    .rss-header .subreddit-title a {
+      color: inherit; }
   .rss-header p {
     margin-bottom: 0; }
 
